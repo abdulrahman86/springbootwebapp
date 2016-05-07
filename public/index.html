@@ -1,0 +1,90 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <title>Hello AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="hello.js"></script>
+</head>
+
+<body ng-controller="Hello">
+
+    <div>
+        List of all cities
+        <div ng-repeat="city in cities">
+            <span>{{city.id}}, {{city.name}}, {{city.name}}</span>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div>
+    <div>
+        Get City By Id:
+        <form name="getCity" ng-submit="getCityById()" autocomplete="off">
+            <label> City Id :</label>
+            <input ng-model="model.city"/>
+        </form>
+        Result :
+        <div>
+            <span>Id: {{cityById.id}}, Name: {{cityById.name}}, Latitude: {{cityById.latitude}}, Longitude: {{cityById.longitude}}</span>
+        </div>
+    </div>
+
+    <br/>
+
+    <div>
+        Delete City By Id:
+        <form name="deleteCity" ng-submit="deleteCityById()" autocomplete="off">
+            <label> City Id :</label>
+            <input ng-model="model.city"/>
+        </form>
+    </div>
+
+    <br/>
+
+    <div>
+        Create City:
+        <form name="createCity" ng-submit="createCityById()" autocomplete="off">
+            <label> City Name:</label>
+            <input ng-model="model.cityCreate.name"/>
+            <label> Latitude:</label>
+            <input ng-model="model.cityCreate.latitude"/>
+            <label> Longitude:</label>
+            <input ng-model="model.cityCreate.longitude"/>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <br/>
+
+    <div>
+        Update City:
+        <form name="createCity" ng-submit="updateCityById()" autocomplete="off">
+            <label> City Id:</label>
+            <input ng-model="model.cityUpdate.id"/>
+            <label> City Name:</label>
+            <input ng-model="model.cityUpdate.name"/>
+            <label> Latitude:</label>
+            <input ng-model="model.cityUpdate.latitude"/>
+            <label> Longitude:</label>
+            <input ng-model="model.cityUpdate.longitude"/>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <br/>
+
+    <div>
+        Calculate distance:
+        <form name="calculate distance" ng-submit="calculateDistance()" autocomplete="off">
+            <label> City1 Id:</label>
+            <input ng-model="model.city1"/>
+            <label> City2 Id:</label>
+            <input ng-model="model.city2"/>
+            <button type="submit">Submit</button>
+        </form>
+        <div ng-if="distance">
+            Distance : {{distance}}
+        </div>
+    </div>
+</body>
+</html>
